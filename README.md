@@ -87,13 +87,14 @@ The project generates the following analysis outputs:
 - Sensor trends for the most variable sensors
 - Actual versus predicted RUL
 
-The generated visualization files are available through the GitHub Actions "Analysis-Results" artifact.
+The generated visualization files are available through the GitHub Actions Analysis-Results artifact.
+
 Project Structure
 
-- ".github/workflows/main.yml" — GitHub Actions workflow
-- "src/src/data_processing.py" — Main data processing and ML script
-- "README.md" — Project documentation
-- "requirements.txt" — Python dependencies
+- .github/workflows/main.yml — GitHub Actions workflow
+- src/src/data_processing.py — Main data processing and machine learning script
+- README.md — Project documentation
+- requirements.txt — Python dependencies
 
 Technologies Used
 
@@ -136,9 +137,8 @@ Results
 
 The current Random Forest model produces the following evaluation results:
 
-Metric| Result
-MAE| 29.37 cycles
-RMSE| 43.20 cycles
+- MAE: 29.37 cycles
+- RMSE: 43.20 cycles
 
 The project successfully demonstrates an end-to-end aircraft engine reliability analysis workflow, including data processing, RUL calculation, exploratory analysis, visualization, machine learning, and automated execution.
 
