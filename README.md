@@ -1,23 +1,22 @@
-Aircraft Maintenance Reliability Analysis
+# Aircraft Maintenance Reliability Analysis
 
-Project Overview
+## Project Overview
 
 This project analyzes aircraft engine degradation and predicts Remaining Useful Life (RUL) using the NASA C-MAPSS dataset.
 
 The goal is to use sensor measurements and operating conditions to understand engine degradation and develop a machine learning model for RUL prediction.
 
-Dataset
+## Dataset
 
 The project uses the NASA C-MAPSS (Commercial Modular Aero-Propulsion System Simulation) dataset.
 
 Dataset source:
-
 Zenodo mirror of the NASA C-MAPSS dataset:
 https://zenodo.org/records/15346912
 
 The analysis focuses on the FD001 subset.
 
-Objectives
+## Objectives
 
 - Analyze aircraft engine sensor data
 - Calculate Remaining Useful Life (RUL)
@@ -26,15 +25,15 @@ Objectives
 - Develop a machine learning model for RUL prediction
 - Evaluate model performance using MAE and RMSE
 
-Methodology
+## Methodology
 
-1. Data Processing
+### 1. Data Processing
 
 The dataset is downloaded and extracted automatically using Python.
 
-The training data is loaded using Pandas, and the RUL of each engine cycle is calculated from the maximum operating cycle of each engine.
+The training data is loaded using Pandas and the RUL of each engine cycle is calculated from the maximum operating cycle of each engine.
 
-2. Exploratory Analysis
+### 2. Exploratory Analysis
 
 The project analyzes:
 
@@ -44,7 +43,7 @@ The project analyzes:
 - Missing values
 - Sensor variability
 
-3. Visualization
+### 3. Visualization
 
 The project generates:
 
@@ -52,7 +51,7 @@ The project generates:
 - Sensor trend analysis
 - Actual vs Predicted RUL
 
-4. Machine Learning
+### 4. Machine Learning
 
 A Random Forest Regression model is used to predict Remaining Useful Life.
 
@@ -63,8 +62,9 @@ Model evaluation metrics:
 - Mean Absolute Error (MAE)
 - Root Mean Squared Error (RMSE)
 
-Project Structure
+## Project Structure
 
+```text
 aircraft-maintenance-reliability-analysis/
 │
 ├── .github/
@@ -76,7 +76,6 @@ aircraft-maintenance-reliability-analysis/
 │       └── data_processing.py
 │
 ├── README.md
-│
 └── requirements.txt
 
 
