@@ -99,6 +99,19 @@ A Random Forest Regression model was evaluated using an engine-wise train/test s
 
 - Mean Absolute Error (MAE): 29.37 cycles
 - Root Mean Squared Error (RMSE): 43.20 cycles
+### Visualizations
+
+#### Engine Degradation and RUL
+
+![Engine Degradation and RUL](rul_degradation.png)
+
+#### Sensor Trends
+
+![Sensor Trends](sensor_trends.png)
+
+#### Actual vs Predicted RUL
+
+![Actual vs Predicted RUL](actual_vs_predicted_rul.png)
 
 The model was trained using sensor measurements and operating conditions to predict the Remaining Useful Life (RUL) of aircraft engines.
 The project also generates visual outputs for:
