@@ -95,11 +95,12 @@ The machine learning workflow successfully processes the NASA C-MAPSS FD001 data
 
 Model Performance
 
-A Random Forest Regression model was evaluated using:
+A Random Forest Regression model was evaluated using an engine-wise train/test split to reduce data leakage between training and testing engines.
 
-- Mean Absolute Error (MAE): 29.66 cycles
-- Root Mean Squared Error (RMSE): 41.50 cycles
+- Mean Absolute Error (MAE): 29.37 cycles
+- Root Mean Squared Error (RMSE): 43.20 cycles
 
+The model was trained using sensor measurements and operating conditions to predict the Remaining Useful Life (RUL) of aircraft engines.
 The project also generates visual outputs for:
 
 - Engine degradation and RUL trends
