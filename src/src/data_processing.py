@@ -1,10 +1,39 @@
 import os
+import zipfile
+import subprocess
 import pandas as pd
 
+zip_file = "CMAPSSData.zip"
 data_folder = "CMAPSSData"
 
-# NASA C-MAPSS FD001 dataset
-train_file = os.path.join(data_folder, "train_FD001.txt")
+url = "https://zenodo.org/records/15346912/files/CMAPSSData.zip?download=1"
+
+# Download dataset
+if not os.path.exists(zip_file):
+    print("Downloading NASA C-MAPSS dataset...")
+    subprocess.run(
+        ["wget", "-O", zip_file, url],
+        check=True
+    )
+    print("Download completed.")
+
+# Extract dataset
+if not os.path.exists(data_folder):
+    print("Extracting dataset...")
+    with zipfile.ZipFile(zip_file, "r") as zip_ref:
+        zip_ref.extractall(data_folder)
+    print("Extraction completed.")
+
+# Find FD001 training file
+train_file = None
+
+for root, dirs, files in os.walk(data_folder):
+    if "train_FD001.txt" in files:
+        train_file = os.path.join(root, "train_FD001.txt")
+        break
+
+if train_file is None:
+    raise FileNotFoundError("train_FD001.txt not found!")
 
 # Column names
 columns = [
@@ -24,6 +53,7 @@ max_cycle = df.groupby("unit_id")["cycle"].transform("max")
 df["RUL"] = max_cycle - df["cycle"]
 
 print("Dataset loaded successfully!")
+print("Training file:", train_file)
 print("Rows:", len(df))
 print("Columns:", len(df.columns))
 
