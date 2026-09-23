@@ -78,3 +78,33 @@ print(
     .agg(["min", "max", "mean"])
     .head(10)
 )
+import matplotlib.pyplot as plt
+
+# Plot RUL degradation for first 5 engines
+plt.figure(figsize=(10, 6))
+
+for engine_id in df["unit_id"].unique()[:5]:
+    engine_data = df[df["unit_id"] == engine_id]
+    plt.plot(
+        engine_data["cycle"],
+        engine_data["RUL"],
+        label=f"Engine {engine_id}"
+    )
+
+plt.xlabel("Operating Cycle")
+plt.ylabel("Remaining Useful Life (RUL)")
+plt.title("Engine Degradation and Remaining Useful Life")
+plt.legend()
+plt.grid(True)
+
+os.makedirs("outputs", exist_ok=True)
+
+plt.savefig(
+    "outputs/rul_degradation.png",
+    dpi=300,
+    bbox_inches="tight"
+)
+
+plt.close()
+
+print("\nRUL degradation graph saved successfully!")
