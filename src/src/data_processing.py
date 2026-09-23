@@ -62,3 +62,19 @@ print(df.head())
 
 print("\nRUL statistics:")
 print(df["RUL"].describe())
+# Basic data analysis
+print("\nMissing values:")
+print(df.isnull().sum().sum())
+
+print("\nNumber of engines:")
+print(df["unit_id"].nunique())
+
+print("\nAverage RUL:")
+print(df["RUL"].mean())
+
+print("\nRUL by engine:")
+print(
+    df.groupby("unit_id")["RUL"]
+    .agg(["min", "max", "mean"])
+    .head(10)
+)
