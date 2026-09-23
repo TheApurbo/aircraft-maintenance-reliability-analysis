@@ -87,6 +87,19 @@ The project generates the following analysis outputs:
 - Sensor trends for the most variable sensors
 - Actual versus predicted RUL
 
+Engine Degradation and RUL
+
+"RUL Degradation" (outputs/rul_degradation.png)
+
+Sensor Trends
+
+"Sensor Trends" (outputs/sensor_trends.png)
+
+Actual vs Predicted RUL
+
+"Actual vs Predicted RUL" (outputs/actual_vs_predicted_rul.png)
+
+The generated visualization files are also available through the GitHub Actions Analysis-Results artifact.
 The generated visualization files are available through the GitHub Actions Analysis-Results artifact.
 
 Project Structure
