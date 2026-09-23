@@ -1,80 +1,103 @@
-
 # Aircraft Maintenance Reliability Analysis
 
-## Project Description
+## Project Overview
 
-This project focuses on analyzing aircraft maintenance and reliability data
-using Python and data analysis techniques.
+This project analyzes aircraft engine degradation and predicts Remaining Useful Life (RUL) using the NASA C-MAPSS dataset.
 
-The primary objective is to identify aircraft component failure patterns,
-maintenance trends, reliability indicators, and potential areas for improving
-aircraft maintenance planning.
+The goal is to use sensor measurements and operating conditions to understand engine degradation and develop a machine learning model for RUL prediction.
+
+## Dataset
+
+The project uses the NASA C-MAPSS (Commercial Modular Aero-Propulsion System Simulation) dataset.
+
+Dataset source:
+Zenodo mirror of the NASA C-MAPSS dataset:
+https://zenodo.org/records/15346912
+
+The analysis focuses on the FD001 subset.
 
 ## Objectives
 
-- Analyze aircraft maintenance records
-- Identify frequently failing aircraft components
-- Calculate Mean Time Between Failures (MTBF)
-- Calculate Mean Time To Repair (MTTR)
-- Calculate component failure rates
-- Analyze aircraft downtime
-- Identify high-risk components
-- Visualize maintenance and reliability trends
-- Support data-driven maintenance planning
+- Analyze aircraft engine sensor data
+- Calculate Remaining Useful Life (RUL)
+- Study engine degradation patterns
+- Identify variable sensor measurements
+- Develop a machine learning model for RUL prediction
+- Evaluate model performance using MAE and RMSE
 
-## Key Reliability Metrics
+## Methodology
 
-### MTBF
+### 1. Data Processing
 
-Mean Time Between Failures (MTBF) measures the average operating time
-between two failures.
+The dataset is downloaded and extracted automatically using Python.
 
-**MTBF = Total Operating Time / Number of Failures**
+The training data is loaded using Pandas and the RUL of each engine cycle is calculated from the maximum operating cycle of each engine.
 
-### MTTR
+### 2. Exploratory Analysis
 
-Mean Time To Repair (MTTR) measures the average time required to repair
-a failed component.
+The project analyzes:
 
-**MTTR = Total Repair Time / Number of Repairs**
+- Number of engines
+- Operating cycles
+- RUL distribution
+- Missing values
+- Sensor variability
 
-### Failure Rate
+### 3. Visualization
 
-Failure rate represents the frequency of failures during aircraft operation.
+The project generates:
 
-**Failure Rate = Number of Failures / Total Operating Time**
+- Engine degradation and RUL trend
+- Sensor trend analysis
+- Actual vs Predicted RUL
 
-## Data Analysis
+### 4. Machine Learning
 
-The project will analyze:
+A Random Forest Regression model is used to predict Remaining Useful Life.
 
-- Aircraft utilization
-- Flight hours and flight cycles
-- Component failures
-- Failure types
-- Maintenance activities
-- Repair time
-- Aircraft downtime
-- Maintenance cost
-- Reliability trends
+The dataset is divided into training and testing sets.
 
-## Technologies
+Model evaluation metrics:
 
-- Python
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- SciPy
-- Scikit-learn
-- Jupyter Notebook
+- Mean Absolute Error (MAE)
+- Root Mean Squared Error (RMSE)
 
-## Project Status
+## Project Structure
 
-🚧 This project is currently under development.
-
-## Future Development
-
-Future development may include predictive maintenance,
-machine learning-based failure prediction, Remaining Useful Life (RUL)
-estimation, reliability dashboards, and automated maintenance reports.
+```text
+aircraft-maintenance-reliability-analysis/
+│
+├── .github/
+│   └── workflows/
+│       └── main.yml
+│
+├── src/
+│   └── src/
+│       └── data_processing.py
+│
+├── README.md
+└── requirements.txt
+Technologies Used
+Python
+Pandas
+NumPy
+Scikit-learn
+Matplotlib
+GitHub Actions
+Results
+The machine learning workflow successfully processes the NASA C-MAPSS FD001 dataset and produces RUL predictions.
+The project also generates visual outputs for engine degradation, sensor behavior, and actual versus predicted RUL.
+Analysis outputs are stored as GitHub Actions artifacts.
+Reproducibility
+The GitHub Actions workflow automatically:
+Downloads the dataset
+Extracts the dataset
+Processes the training data
+Calculates RUL
+Performs exploratory analysis
+Trains the Random Forest model
+Generates analysis graphs
+Uploads the results as artifacts
+Conclusion
+This project demonstrates a complete workflow for aircraft engine reliability analysis and Remaining Useful Life prediction using sensor data and machine learning.
+The approach can support predictive maintenance research by providing a data-driven framework for analyzing engine degradation and estimating remaining useful life.
