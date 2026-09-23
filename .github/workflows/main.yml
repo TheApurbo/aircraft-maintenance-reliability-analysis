@@ -1,4 +1,4 @@
-run: python src/src/data_processing.py
+name: Run Data Processing
 
 on:
   workflow_dispatch:
@@ -20,4 +20,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run data processing
-        run: python src/data_processing.py
+        run: python src/src/data_processing.py
