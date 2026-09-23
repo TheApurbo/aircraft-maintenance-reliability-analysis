@@ -182,3 +182,38 @@ print("RMSE:", rmse)
 plt.close()
 
 print("\nRUL degradation graph saved successfully!")
+# Actual vs Predicted RUL
+
+plt.figure(figsize=(10, 6))
+
+plt.scatter(
+    y_test,
+    y_pred,
+    alpha=0.5
+)
+
+plt.xlabel("Actual RUL")
+plt.ylabel("Predicted RUL")
+plt.title("Actual vs Predicted Remaining Useful Life")
+
+# Perfect prediction line
+min_value = min(y_test.min(), y_pred.min())
+max_value = max(y_test.max(), y_pred.max())
+
+plt.plot(
+    [min_value, max_value],
+    [min_value, max_value],
+    linestyle="--"
+)
+
+plt.grid(True)
+
+plt.savefig(
+    "outputs/actual_vs_predicted_rul.png",
+    dpi=300,
+    bbox_inches="tight"
+)
+
+plt.close()
+
+print("\nActual vs Predicted RUL graph saved successfully!")
