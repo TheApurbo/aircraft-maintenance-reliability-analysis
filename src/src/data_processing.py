@@ -5,7 +5,7 @@ import subprocess
 zip_file = "CMAPSSData.zip"
 data_folder = "CMAPSSData"
 
-url = "https://data.nasa.gov/docs/legacy/CMAPSSData.zip"
+url = "https://zenodo.org/records/15346912/files/CMAPSSData.zip?download=1"
 
 # Download dataset using wget
 if not os.path.exists(zip_file):
