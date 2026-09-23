@@ -1,40 +1,29 @@
-"""
-Aircraft Maintenance Reliability Analysis
-Data Processing Module
-"""
+import os
+import zipfile
+import urllib.request
 
-import pandas as pd
+# NASA CMAPSS dataset URL
+url = "https://data.nasa.gov/docs/legacy/CMAPSSData.zip"
 
+# File names
+zip_file = "CMAPSSData.zip"
+data_folder = "CMAPSSData"
 
-def load_data(file_path):
-    """
-    Load aircraft maintenance data from a CSV file.
-    """
-    return pd.read_csv(file_path)
+# Download dataset if it doesn't exist
+if not os.path.exists(zip_file):
+    print("Downloading NASA CMAPSS dataset...")
+    urllib.request.urlretrieve(url, zip_file)
+    print("Download completed.")
 
+# Extract dataset if folder doesn't exist
+if not os.path.exists(data_folder):
+    print("Extracting dataset...")
+    with zipfile.ZipFile(zip_file, "r") as zip_ref:
+        zip_ref.extractall(data_folder)
+    print("Extraction completed.")
 
-def clean_data(df):
-    """
-    Perform basic data cleaning.
-    """
-
-    df = df.copy()
-
-    # Remove duplicate records
-    df = df.drop_duplicates()
-
-    # Remove completely empty rows
-    df = df.dropna(how="all")
-
-    return df
-
-
-def basic_summary(df):
-    """
-    Generate basic statistical summary.
-    """
-    return df.describe(include="all")
-
-
-if __name__ == "__main__":
-    print("Aircraft maintenance data processing module is ready.")
+# Check extracted files
+print("\nDataset files:")
+for root, dirs, files in os.walk(data_folder):
+    for file in files:
+        print(os.path.join(root, file))
