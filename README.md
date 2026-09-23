@@ -79,15 +79,11 @@ Visualizations
 
 Actual vs Predicted RUL
 
-"Actual vs Predicted RUL" (./outputs/actual_vs_predicted_rul.png)
+<img src="outputs/actual_vs_predicted_rul.png" alt="Actual vs Predicted RUL">RUL Degradation
 
-RUL Degradation
+<img src="outputs/rul_degradation.png" alt="RUL Degradation">Sensor Trends
 
-"RUL Degradation" (./outputs/rul_degradation.png)
-
-Sensor Trends
-
-"Sensor Trends" (./outputs/sensor_trends.png)
+<img src="outputs/sensor_trends.png" alt="Sensor Trends">
 
 Project Structure
 
