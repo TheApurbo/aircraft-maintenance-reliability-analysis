@@ -103,7 +103,42 @@ plt.savefig(
     "outputs/rul_degradation.png",
     dpi=300,
     bbox_inches="tight"
+)# Sensor trend analysis
+sensor_columns = [f"sensor_{i}" for i in range(1, 22)]
+
+# Calculate sensor variability
+sensor_std = df[sensor_columns].std().sort_values(ascending=False)
+
+print("\nSensor variability:")
+print(sensor_std)
+
+# Plot top 5 most variable sensors
+top_sensors = sensor_std.head(5).index
+
+plt.figure(figsize=(10, 6))
+
+for sensor in top_sensors:
+    plt.plot(
+        df[df["unit_id"] == 1]["cycle"],
+        df[df["unit_id"] == 1][sensor],
+        label=sensor
+    )
+
+plt.xlabel("Operating Cycle")
+plt.ylabel("Sensor Value")
+plt.title("Top 5 Sensor Trends - Engine 1")
+plt.legend()
+plt.grid(True)
+
+plt.savefig(
+    "outputs/sensor_trends.png",
+    dpi=300,
+    bbox_inches="tight"
 )
+
+plt.close()
+
+print("\nSensor trend graph saved successfully!")
 
 plt.close()
 
