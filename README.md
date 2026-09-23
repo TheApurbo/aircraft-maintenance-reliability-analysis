@@ -89,7 +89,8 @@ The project generates the following analysis outputs:
 
 The generated visualization files are available through the GitHub Actions "Analysis-Results" artifact.
 
-Project Structure 
+Project Structure
+
 aircraft-maintenance-reliability-analysis/
 │
 ├── .github/
@@ -102,6 +103,8 @@ aircraft-maintenance-reliability-analysis/
 │
 ├── README.md
 └── requirements.txt
+
+
 
 Technologies Used
 
