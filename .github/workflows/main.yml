@@ -1,4 +1,4 @@
-name: Run Data Processing
+run: python src/src/data_processing.py
 
 on:
   workflow_dispatch:
