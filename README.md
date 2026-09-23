@@ -85,9 +85,23 @@ Scikit-learn
 Matplotlib
 GitHub Actions
 Results
-The machine learning workflow successfully processes the NASA C-MAPSS FD001 dataset and produces RUL predictions.
-The project also generates visual outputs for engine degradation, sensor behavior, and actual versus predicted RUL.
-Analysis outputs are stored as GitHub Actions artifacts.
+
+The machine learning workflow successfully processes the NASA C-MAPSS FD001 dataset and produces Remaining Useful Life (RUL) predictions.
+
+Model Performance
+
+A Random Forest Regression model was evaluated using:
+
+- Mean Absolute Error (MAE): 29.66 cycles
+- Root Mean Squared Error (RMSE): 41.50 cycles
+
+The project also generates visual outputs for:
+
+- Engine degradation and RUL trends
+- Sensor behavior
+- Actual versus predicted RUL
+
+Analysis outputs are stored as GitHub Actions artifacts for reproducibility.
 Reproducibility
 The GitHub Actions workflow automatically:
 Downloads the dataset
