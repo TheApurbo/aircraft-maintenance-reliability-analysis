@@ -77,17 +77,17 @@ These metrics represent prediction error in operating-cycle units.
 
 Visualizations
 
-Engine Degradation and RUL
+Actual vs Predicted RUL
 
-"RUL Degradation" (outputs/rul_degradation.png)
+"Actual vs Predicted RUL" (./outputs/actual_vs_predicted_rul.png)
+
+RUL Degradation
+
+"RUL Degradation" (./outputs/rul_degradation.png)
 
 Sensor Trends
 
-"Sensor Trends" (outputs/sensor_trends.png)
-
-Actual vs Predicted RUL
-
-"Actual vs Predicted RUL" (outputs/actual_vs_predicted_rul.png)
+"Sensor Trends" (./outputs/sensor_trends.png)
 
 Project Structure
 
