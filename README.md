@@ -1,22 +1,23 @@
-# Aircraft Maintenance Reliability Analysis
+Aircraft Maintenance Reliability Analysis
 
-## Project Overview
+Project Overview
 
 This project analyzes aircraft engine degradation and predicts Remaining Useful Life (RUL) using the NASA C-MAPSS dataset.
 
 The goal is to use sensor measurements and operating conditions to understand engine degradation and develop a machine learning model for RUL prediction.
 
-## Dataset
+Dataset
 
 The project uses the NASA C-MAPSS (Commercial Modular Aero-Propulsion System Simulation) dataset.
 
 Dataset source:
+
 Zenodo mirror of the NASA C-MAPSS dataset:
 https://zenodo.org/records/15346912
 
 The analysis focuses on the FD001 subset.
 
-## Objectives
+Objectives
 
 - Analyze aircraft engine sensor data
 - Calculate Remaining Useful Life (RUL)
@@ -25,15 +26,15 @@ The analysis focuses on the FD001 subset.
 - Develop a machine learning model for RUL prediction
 - Evaluate model performance using MAE and RMSE
 
-## Methodology
+Methodology
 
-### 1. Data Processing
+1. Data Processing
 
 The dataset is downloaded and extracted automatically using Python.
 
-The training data is loaded using Pandas and the RUL of each engine cycle is calculated from the maximum operating cycle of each engine.
+The training data is loaded using Pandas, and the RUL of each engine cycle is calculated from the maximum operating cycle of each engine.
 
-### 2. Exploratory Analysis
+2. Exploratory Analysis
 
 The project analyzes:
 
@@ -43,7 +44,7 @@ The project analyzes:
 - Missing values
 - Sensor variability
 
-### 3. Visualization
+3. Visualization
 
 The project generates:
 
@@ -51,7 +52,7 @@ The project generates:
 - Sensor trend analysis
 - Actual vs Predicted RUL
 
-### 4. Machine Learning
+4. Machine Learning
 
 A Random Forest Regression model is used to predict Remaining Useful Life.
 
@@ -62,9 +63,8 @@ Model evaluation metrics:
 - Mean Absolute Error (MAE)
 - Root Mean Squared Error (RMSE)
 
-## Project Structure
+Project Structure
 
-```text
 aircraft-maintenance-reliability-analysis/
 │
 ├── .github/
@@ -77,13 +77,16 @@ aircraft-maintenance-reliability-analysis/
 │
 ├── README.md
 └── requirements.txt
+
 Technologies Used
-Python
-Pandas
-NumPy
-Scikit-learn
-Matplotlib
-GitHub Actions
+
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- Matplotlib
+- GitHub Actions
+
 Results
 
 The machine learning workflow successfully processes the NASA C-MAPSS FD001 dataset and produces Remaining Useful Life (RUL) predictions.
@@ -102,16 +105,22 @@ The project also generates visual outputs for:
 - Actual versus predicted RUL
 
 Analysis outputs are stored as GitHub Actions artifacts for reproducibility.
+
 Reproducibility
+
 The GitHub Actions workflow automatically:
-Downloads the dataset
-Extracts the dataset
-Processes the training data
-Calculates RUL
-Performs exploratory analysis
-Trains the Random Forest model
-Generates analysis graphs
-Uploads the results as artifacts
+
+1. Downloads the dataset
+2. Extracts the dataset
+3. Processes the training data
+4. Calculates RUL
+5. Performs exploratory analysis
+6. Trains the Random Forest model
+7. Generates analysis graphs
+8. Uploads the results as artifacts
+
 Conclusion
+
 This project demonstrates a complete workflow for aircraft engine reliability analysis and Remaining Useful Life prediction using sensor data and machine learning.
-The approach can support predictive maintenance research by providing a data-driven framework for analyzing engine degradation and estimating remaining useful life.
+
+The approach provides a data-driven framework for analyzing engine degradation and estimating remaining useful life, which can support predictive maintenance research.
