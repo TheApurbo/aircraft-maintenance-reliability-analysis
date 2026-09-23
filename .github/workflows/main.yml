@@ -21,3 +21,9 @@ jobs:
 
       - name: Run data processing
         run: python src/src/data_processing.py
+
+      - name: Upload processed dataset
+        uses: actions/upload-artifact@v4
+        with:
+          name: CMAPSSData
+          path: CMAPSSData
