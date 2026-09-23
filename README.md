@@ -88,23 +88,12 @@ The project generates the following analysis outputs:
 - Actual versus predicted RUL
 
 The generated visualization files are available through the GitHub Actions "Analysis-Results" artifact.
-
 Project Structure
 
-aircraft-maintenance-reliability-analysis/
-│
-├── .github/
-│   └── workflows/
-│       └── main.yml
-│
-├── src/
-│   └── src/
-│       └── data_processing.py
-│
-├── README.md
-└── requirements.txt
-
-
+- ".github/workflows/main.yml" — GitHub Actions workflow
+- "src/src/data_processing.py" — Main data processing and ML script
+- "README.md" — Project documentation
+- "requirements.txt" — Python dependencies
 
 Technologies Used
 
