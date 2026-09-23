@@ -1,30 +1,34 @@
 import os
-import zipfile
-import subprocess
+import pandas as pd
 
-zip_file = "CMAPSSData.zip"
 data_folder = "CMAPSSData"
 
-url = "https://zenodo.org/records/15346912/files/CMAPSSData.zip?download=1"
+# NASA C-MAPSS FD001 dataset
+train_file = os.path.join(data_folder, "train_FD001.txt")
 
-# Download dataset using wget
-if not os.path.exists(zip_file):
-    print("Downloading NASA CMAPSS dataset...")
-    subprocess.run(
-        ["wget", "-O", zip_file, url],
-        check=True
-    )
-    print("Download completed.")
+# Column names
+columns = [
+    "unit_id", "cycle", "setting_1", "setting_2", "setting_3"
+] + [f"sensor_{i}" for i in range(1, 22)]
 
-# Extract dataset
-if not os.path.exists(data_folder):
-    print("Extracting dataset...")
-    with zipfile.ZipFile(zip_file, "r") as zip_ref:
-        zip_ref.extractall(data_folder)
-    print("Extraction completed.")
+# Load training data
+df = pd.read_csv(
+    train_file,
+    sep=r"\s+",
+    header=None,
+    names=columns
+)
 
-# Show extracted files
-print("\nDataset files:")
-for root, dirs, files in os.walk(data_folder):
-    for file in files:
-        print(os.path.join(root, file))
+# Calculate Remaining Useful Life (RUL)
+max_cycle = df.groupby("unit_id")["cycle"].transform("max")
+df["RUL"] = max_cycle - df["cycle"]
+
+print("Dataset loaded successfully!")
+print("Rows:", len(df))
+print("Columns:", len(df.columns))
+
+print("\nFirst 5 rows:")
+print(df.head())
+
+print("\nRUL statistics:")
+print(df["RUL"].describe())
